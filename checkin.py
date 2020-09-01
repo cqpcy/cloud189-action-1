@@ -43,14 +43,13 @@ def main():
         "Host": "m.cloud.189.cn",
         "Accept-Encoding": "gzip, deflate",
     }
-    cjStr = ''
     response = s.get(url, headers=headers)
     if ("errorCode" in response.text):
         print(response.text)
     else:
         description = response.json()['description']
         print(f"抽奖获得{description}")
-        cjStr = cjStr + f"抽奖获得{description}"
+        cjStr1 = f"抽奖获得{description}"
 
     response = s.get(url2, headers=headers)
     if ("errorCode" in response.text):
@@ -58,7 +57,7 @@ def main():
     else:
         description = response.json()['description']
         print(f"抽奖获得{description}")
-        cjStr = cjStr + f"抽奖获得{description}"
+        cjStr2 = f"抽奖获得{description}"
 
     now_time = datetime.datetime.now()
     bj_time = now_time + datetime.timedelta(hours=8)
@@ -76,7 +75,8 @@ def main():
 
     ### 🚀抽奖:
     ```
-    {cjStr}
+    {cjStr1}
+    {cjStr2}
 
     ```
     """
