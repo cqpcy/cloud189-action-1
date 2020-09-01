@@ -44,6 +44,7 @@ def main():
         "Accept-Encoding": "gzip, deflate",
     }
     response = s.get(url, headers=headers)
+    cjStr1=''
     if ("errorCode" in response.text):
         print(response.text)
     else:
@@ -52,6 +53,7 @@ def main():
         cjStr1 = f"抽奖获得{description}"
 
     response = s.get(url2, headers=headers)
+    cjStr2=''
     if ("errorCode" in response.text):
         print(response.text)
     else:
@@ -70,14 +72,12 @@ def main():
     ### ✨签到：
     ```
     {signStr}
-
     ```
 
     ### 🚀抽奖:
     ```
     {cjStr1}
     {cjStr2}
-
     ```
     """
     requests.post('https://sc.ftqq.com/SCU74663T20ed2886a458ab9e3be21f3de4e8fd965e0b13de3ff1b.send', data={
