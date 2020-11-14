@@ -11,10 +11,11 @@ s = requests.Session()
 
 username = ""
 password = ""
-
+key= "" #server酱推送
 if(username == "" or password == ""):
     username = input("账号：")
     password = input("密码：")
+    key = input()
 
 
 def main():
@@ -80,7 +81,7 @@ def main():
     {cjStr2}
     ```
     """
-    requests.post('https://sc.ftqq.com/SCU74663T20ed2886a458ab9e3be21f3de4e8fd965e0b13de3ff1b.send', data={
+    requests.post('https://sc.ftqq.com/'+key+'.send', data={
     'text':bj_time.strftime("%Y-%m-%d %H:%M:%S %p")+'天翼云盘打卡',
     'desp':desp
 })
